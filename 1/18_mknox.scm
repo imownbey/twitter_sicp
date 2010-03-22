@@ -9,8 +9,7 @@
 (define (*-short a b)
   (apply-n-times a (lambda (x) (+ x b)) 0))
 
-(define (*-fast x y)
-  (cond ((= y 0) 0)
-        ((= y 1) x)
-        ((even? y) (*-fast (double x) (halve y)))
-        (else (*-fast (+ x y) (- y 1)))))
+(define (*-fast-iter a x y)
+  (cond ((= y 0) a)
+        ((even? y) (*-fast-iter a (double x) (halve y)))
+        (else (*-fast-iter (+ a x) x (- y 1)))))
