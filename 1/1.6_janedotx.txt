@@ -1,0 +1,1 @@
+Because new-if is a procedure, the interpreter evaluates the procedure and its arguments. It ends up expanding good-enough? and sqrt-iter, and evaluating the latter just gets us into evaluating new-if and its arguments again. Thus, it never gets around to testing any predicate values for truthiness.
