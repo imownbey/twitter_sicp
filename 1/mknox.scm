@@ -10,3 +10,4 @@
            (map (lambda (x y) (= x y))
                 (map (lambda (al) (apply (car fs) al)) args)
                 (map (lambda (al) (apply (cadr fs) al)) args)))))
+
