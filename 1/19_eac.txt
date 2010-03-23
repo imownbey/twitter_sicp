@@ -1,0 +1,44 @@
+Unfortunately TeX is taking forever to compile so I'll just write this in pseudo-plaintext.
+
+Consider T_pq(a,b):
+
+a <- bq + aq + ap
+b <- bp + aq
+
+Now, consider T_pq(T_pq(a,b)):
+
+a' <- (bp + aq)q + (bq + aq + apq) + (bq + aq + ap)p
+b' <- (bp + aq)p + (bq + aq + ap)q
+
+Expanding:
+
+a' <- bpq + aqq + bqq + aqq + apq + bqp + aqp + app
+b' <- bpp + aqp + bqq + aqq + apq
+
+Now note that the following are equivalent:
+
+a' <- bpq + aqq + bqq + aqq + apq + bqp + aqp + app
+a' <- bpq + bqq + bqp + aqq + aqq + apq + aqp + app
+a' <- b(pq + 2qp) + a(2qq + 2pq + pp)
+a' <- b(pq + 2qp) + a(qq + 2pq) + a(qq + pp)
+
+likewise
+
+b' <- bpp + aqp + bqq + aqq + apq
+b' <- bpp + bqq + aqp + aqq + aqp
+b' <- b(pp + qq) + a(2pq + qq)
+
+Note that 
+
+a' <- b(pq + 2qp) + a(qq + 2pq) + a(qq + pp)
+b' <- b(pp + qq) + a(2pq + qq)
+
+Are of the form 
+
+a' <- bq' + aq' + ap'
+b' <- bp' + aq' 
+
+where 
+
+q' = bp + 2qp
+p' = pp + qq
