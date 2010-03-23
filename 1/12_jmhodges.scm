@@ -1,6 +1,6 @@
 ;; Assuming that we don't have the niceties we haven't learned about, yet.
 
-(define (fact n)
+(define (fact n) ; Not tail call optimized so I AM NOT A COOL KID.
   (if (= n 0)
       1
       (* n (fact (- n 1))))
