@@ -1,6 +1,5 @@
+(include (file "/Users/mknox/h/twitter_sicp/1/mknox.scm"))
 (define (double f)
   (lambda (x) (f (f x))))
-
-(define (inc x) (+ 1 x))
 
 (((double (double double)) inc) 5)

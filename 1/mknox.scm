@@ -1,4 +1,5 @@
-; I'd like do define a bunch of tests of the form:
+; I fairly frequently implement the same method more than once.
+; Accordingly, I'd like do define a bunch of tests of the form:
 ; (test-equality '(foo bar baz) '(1 2 3 4 5))
 ; and make sure that all three functions return the same
 ; results for those arguments.
@@ -30,7 +31,9 @@
   ; it's somewhat annoying that I can't make this arbitrary-arity.
   ; but scheme doesn't seem to have a way to do that.
   (lambda (arg . args)
-    (g (apply f (cons arg args)))))
+    (f (apply g (cons arg args)))))
+
+(define (compose-1arg f g) (lambda (x) (f (g x))))
 
 (define (inc x) (+ 1 x))
 (define (dec x) (- x 1))
@@ -52,3 +55,4 @@
   (cond ((null? l) '())
         ((f (car l)) (cons (car l) (filter f (cdr l))))
         (filter f (cdr l))))
+

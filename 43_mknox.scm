@@ -1,7 +1,5 @@
-(define (dec x) (- 1 x))
-(define (ident x) x)
-(define (compose f g) (lambda (x) (f (g x))))
+(include (file "/Users/mknox/h/twitter_sicp/1/mknox.scm"))
 (define (repeated f n)
   (if (<= n 0)
       ident
-      (compose f (repeated f (dec n)))))
+      (compose-1arg f (repeated f (dec n)))))
