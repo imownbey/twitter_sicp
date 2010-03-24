@@ -4,11 +4,11 @@
 
 ;A working iterative solution:
 (define (square-list2 items)
-   (define (iter2 things)
-        (if (null? things)
-                 things
-                         (cons (square (car things)) 
-                                        (iter2 (cdr things)))))
-     (iter2 items))
+ (define (iter2 things)
+  (if (null? things)
+   things
+   (cons (square (car things)) 
+    (iter2 (cdr things)))))
+ (iter2 items))
 
 
