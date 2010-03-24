@@ -11,3 +11,13 @@
                 (map (lambda (al) (apply (car fs) al)) args)
                 (map (lambda (al) (apply (cadr fs) al)) args)))))
 
+(define (foldr f v l)
+  (if (null? l)
+      v
+      (f (car l) (fold f v (cdr l)))))
+
+(define (foldl f v l)
+  (if (null? l)
+      v
+      (foldl f (f v (car l)) (cdr l))))
+
