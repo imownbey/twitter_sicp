@@ -12,6 +12,15 @@
                 (map (lambda (al) (apply (car fs) al)) args)
                 (map (lambda (al) (apply (cadr fs) al)) args)))))
 
+(define (return-same-result f g arglist)
+  (let ((f-results (apply f arglist))
+        (g-results (apply g arglist)))
+    ; should make this print.
+    (= f-results g-results)))
+
+(define (same-results f g arglists)
+  ())
+
 (define (apply-n-times n f s)
   (if (<= n 0)
       s
