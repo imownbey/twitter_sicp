@@ -1,5 +1,4 @@
-(define (square x)
-  (* x x))
+(define (square x)(* x x))
 
 (define (sum-squares x y)
   (+ (square x) (square y)))

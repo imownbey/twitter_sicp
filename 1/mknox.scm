@@ -34,8 +34,21 @@
 
 (define (inc x) (+ 1 x))
 (define (dec x) (- x 1))
+(define (ident x) x)
 
 (define (.. x y)
   (if (> x y)
       '()
       (cons x (.. (inc x) y))))
+
+(define (take n l)
+  ; take at most n elements of list l
+  (if (or (null? l) (= 0 n))
+      '()
+      (cons (car l)
+            (take (- n 1) (cdr l)))))
+
+(define (filter f l)
+  (cond ((null? l) '())
+        ((f (car l)) (cons (car l) (filter f (cdr l))))
+        (filter f (cdr l))))
