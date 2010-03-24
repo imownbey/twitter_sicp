@@ -11,13 +11,23 @@
                 (map (lambda (al) (apply (car fs) al)) args)
                 (map (lambda (al) (apply (cadr fs) al)) args)))))
 
+(define (apply-n-times n f s)
+  (if (<= n 0)
+      s
+      (apply-n-times (- n 1) f (f s))))
+
 (define (foldr f v l)
   (if (null? l)
       v
-      (f (car l) (fold f v (cdr l)))))
+      (f (car l) (foldr f v (cdr l)))))
 
 (define (foldl f v l)
   (if (null? l)
       v
       (foldl f (f v (car l)) (cdr l))))
 
+(define (compose f g)
+  ; it's somewhat annoying that I can't make this arbitrary-arity.
+  ; but scheme doesn't seem to have a way to do that.
+  (lambda (arg . args)
+    (g (apply f (cons arg args)))))
