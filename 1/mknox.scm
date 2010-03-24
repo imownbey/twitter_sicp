@@ -31,3 +31,11 @@
   ; but scheme doesn't seem to have a way to do that.
   (lambda (arg . args)
     (g (apply f (cons arg args)))))
+
+(define (inc x) (+ 1 x))
+(define (dec x) (- x 1))
+
+(define (.. x y)
+  (if (> x y)
+      '()
+      (cons x (.. (inc x) y))))
