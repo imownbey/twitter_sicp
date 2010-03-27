@@ -1,6 +1,0 @@
-With applicative-order evaluation, on calling (test 0 (p)) you get:
-(if (= x 0)
-     0
-         (p))
-
-  Then you'd evaluate the if statement to 0. With normal-order evaluation, the operator and operands are evaluated sooner rather than later, and in attempting to expand (p) we get stuck in an infinite loop.
