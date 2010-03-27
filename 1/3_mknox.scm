@@ -29,8 +29,11 @@
              (sq x)
              (sq z)))))
 
-(define (top-2 l)
+(define (top-2.1 l)
   (take 2 (sort l >)))
+
+(define (top-2 l)
+  (cdr (sort l <)))
 
 (define (top-2-squared.3 x y z)
   (apply sum-squares (top-2 (list x y z))))
