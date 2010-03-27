@@ -1,0 +1,10 @@
+; SICP Exercise 1.6 (problem statement abbreviated)
+;
+; A new version of if is defined in Scheme, without being implemented as a special form.
+; What happens when used to compute square roots using the sqrt-iter and related procedures
+; from earlier in the text?
+
+The program will loop infinitely, as in Exercise 1.5. Applicative-order evaluation means that
+the recursive call to sqrt-iter will never return.
+
+See associated 6_al3x.scm file to verify in the Scheme interpreter of your choice.
