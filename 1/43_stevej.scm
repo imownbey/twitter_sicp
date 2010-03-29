@@ -12,3 +12,12 @@
 (define (square x) (* x x ))
 
 (= 625 ((repeated square 1) 5)) ; => #t
+
+;; BONUS! An iterative version of repeated.
+
+(define (repeated-iter f fn n)
+  (cond ((= n 1) fn)
+        (else (repeated-iter f (compose f fn) (- n 1)))))
+
+(define (repeated.2 f n)
+  (repeated-iter f f n))
