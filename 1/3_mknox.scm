@@ -1,5 +1,5 @@
-(define (square x)
-  (* x x))
+(include (file "/Users/mknox/h/twitter_sicp/1/mknox.scm"))
+(define (square x)(* x x))
 
 (define (sum-squares x y)
   (+ (square x) (square y)))
@@ -29,15 +29,11 @@
              (sq x)
              (sq z)))))
 
-(define (take n l)
-  ; take at most n elements of list l
-  (if (or (null? l) (= 0 n))
-      '()
-      (cons (car l)
-            (take (- n 1) (cdr l)))))
+(define (top-2.1 l)
+  (take 2 (sort l >)))
 
 (define (top-2 l)
-  (take 2 (sort l >)))
+  (cdr (sort l <)))
 
 (define (top-2-squared.3 x y z)
   (apply sum-squares (top-2 (list x y z))))
