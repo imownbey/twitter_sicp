@@ -65,3 +65,15 @@
         ((f (car l)) (cons (car l) (filter f (cdr l))))
         (filter f (cdr l))))
 
+; largely useless object-style iterator.
+(define (iterator a b nullv)
+  (define (next!)
+    (if (not (> a b))
+        (begin
+          (set! a (+ a 1))
+          (- a 1))
+        nullv))
+  (lambda (msg)
+    (cond ((eq? msg 'done?) (> a b))
+          ((eq? msg 'next) (next!))
+          (#t (error "can't understand this message")))))
