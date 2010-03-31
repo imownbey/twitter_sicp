@@ -4,4 +4,4 @@
       (accumulate f (f (term a) nullv) term (next a) b next)))
 
 (define (sum term a b next)
-  (accumulate + 0 a b next))
+  (accumulate + 0 term a b next))
