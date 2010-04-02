@@ -14,3 +14,4 @@
 : next-fib ( a b -- b b+a ) over + swap ;
 : nth-fib ( n -- x ) 0 1 rot [ dup 0 <= ] [ [ next-fib ] dip 1 - ] until 2drop ;
 
+: ntimes ( state quot n -- state )  [ dup 0 = ] [ [ drop call( x -- x ) ] 2keep 1 - ] until 2drop ;
