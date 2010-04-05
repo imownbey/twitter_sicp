@@ -1,0 +1,21 @@
+;; SICP Exercise 1.5 (problem statement abbreviated)
+;;
+;;
+;; Two procedures are defined to test whether the interpreter is applicative-order or normal-order:
+;;
+;; (define (p) (p))
+;;
+;; (define (test x y)
+;;   (if (= x 0)
+;;   0
+;;   y))
+;;
+;; And evaluated as:
+;;
+;; (test 0 (p))
+;;
+;; What happens under applicative-order and normal-order evaluations?
+
+Under applicative-order evaluation, the interpreter loops infinitely on p.
+
+A normal-order interpreter would substitute x with 0, evaluate the equality of 0 and 0 as true, and return 0. It would never reach the alternate branch of the conditional, and thus never reach the infinite loop.
