@@ -26,5 +26,5 @@ void pascal_row(int row[], int rows) {
 
 int main(int argc, const char* argv[]) {
   int i, row[100] = {0};
-  pascal_row(row, 20);
+  pascal_row(row, 30);
 }
