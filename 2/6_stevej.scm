@@ -1,6 +1,6 @@
 ;; 2.6 Church numerals.
 
-(define zero.0 (lambda (g) id))
+(define zero.0 (lambda (g) (lambda (x) x)))
 
 (define (add-1 n)
   (lambda (f) (lambda (x) (f ((n f) x)))))
@@ -28,13 +28,7 @@
 (define two.simple
   (lambda (f) (lambda (x) (f (f x)))))
 
-(define (compose f g)
-  (lambda (x)
-   (f (g x))))
-
-;; this adds two church numerals
-(define add-church compose)
-
-
-
+;; add two church numerals.
+(define (add-church a b)
+  (lambda (f) (lambda (x) ((a f) ((b f) x)))))
 
