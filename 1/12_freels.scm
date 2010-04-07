@@ -9,5 +9,5 @@
 
   (if (= row 1)
       '(1)
-      (let ((prev (pascal-vals (- row 1))))
+      (let ((prev (pascal-triangle-row (- row 1))))
             (zip + prev (cons 0 prev)))))
