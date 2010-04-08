@@ -21,6 +21,9 @@
 (define (same-results f g arglists)
   ())
 
+; I want to build up a test framework in scheme, using macros, so...
+(require mzlib/defmacro)
+
 (define (apply-n-times n f s)
   (if (<= n 0)
       s
@@ -64,6 +67,11 @@
   (cond ((null? l) '())
         ((f (car l)) (cons (car l) (filter f (cdr l))))
         (filter f (cdr l))))
+
+(define (nth n l)
+  (if (= 0 n)
+      (car l)
+      (nth (- n 1) (cdr l))))
 
 ; largely useless object-style iterator.
 (define (iterator a b nullv)
