@@ -73,6 +73,11 @@
       (car l)
       (nth (- n 1) (cdr l))))
 
+(define (rcd l)
+    (if (or (null? l) (null? (cdr l)))
+        '()
+        (cons (car l) (rcd (cdr l)))))
+
 ; largely useless object-style iterator.
 (define (iterator a b nullv)
   (define (next!)
