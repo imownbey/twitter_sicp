@@ -1,0 +1,6 @@
+(define (map-tree tree fn)
+  (cond ((null? tree) '())
+        ((not (pair? tree)) (fn tree))
+        (else (cons (map-tree (car tree) fn)
+                    (map-tree (cdr tree) fn)))))
+(map-tree (list 1 (list 2 (list 3 4) 5) (list 6 7)) (lambda (x) (* 3 x)))
