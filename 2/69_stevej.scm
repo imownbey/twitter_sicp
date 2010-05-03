@@ -1,6 +1,16 @@
 ; (load "/Users/stevej/src/twitter_sicp/2/68_stevej.scm")
 
 (define (successive-merge ordered-leaves)
+  (if (< (length ordered-leaves) 2)
+      '()
+      (if (> (length ordered-leaves) 2)
+          (successive-merge-deep ordered-leaves)
+          (make-code-tree
+           (car ordered-leaves)
+           (cadr ordered-leaves)))))
+
+;; use when you have more than 2 leaves
+(define (successive-merge-deep ordered-leaves)
   (define (successive-merge-reversed ordered-leaves)
     (if (null? (cddr ordered-leaves))
         (make-code-tree
@@ -33,6 +43,12 @@
 (define leaf-set (make-leaf-set pairs))
 
 (equal? example-tree (successive-merge leaf-set))
+
+(null? (generate-huffman-tree '(('A 4))))
+
+(equal?
+ '((leaf 'b 2) (leaf 'a 4) ('b 'a) 6)
+ (generate-huffman-tree '(('A 4) ('B 2))))
 
 (equal?
  example-tree
